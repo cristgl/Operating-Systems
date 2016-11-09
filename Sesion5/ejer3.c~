@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <signal.h>
+
+int main(){
+	sigset_t set;
+	
+	//Añadimos todas las señales y eliminamos SIGUSR1
+//	sigemptyset(&set);
+	sigfillset(&set);
+	sigdelset(&set,SIGUSR1);
+	//Suspendemos hasta recibir SIGUSR1
+	sigsuspend(&set);
+}
+
+
